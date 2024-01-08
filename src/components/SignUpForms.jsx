@@ -21,15 +21,15 @@ export default function SignUpForm({ token, setToken }) {
   }
 
   return (
-    <div>
-        <h2>Sign Up</h2>
+    <div id="sign">
+      <h2>Sign Up</h2>
       {error && <p>{error}</p>}
-      
 
       <form onSubmit={handleSubmit}>
         <label>
           Username:
           <input
+          className="user"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
@@ -37,16 +37,25 @@ export default function SignUpForm({ token, setToken }) {
         <br />
 
         <label>
-        Password:
+          Password:
           <input
-          className="pass"
+            className="pass"
             type="password"
+            pattern="(?=.*[a-z]).{8}"
+            title="Must contain 8 characters in length."
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
         </label>
         <br />
         <button>Submit</button>
+        <div id="message">
+          <h3>Password must contain the following:</h3>
+          <p id="length" className="invalid">
+            Contains <b>8 characters</b>
+          </p>
+    
+        </div>
       </form>
     </div>
   );

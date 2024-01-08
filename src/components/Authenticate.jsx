@@ -18,7 +18,7 @@ export default function Authenticate({ token }) {
       );
       const result = await response.json();
       setSuccessMessage(result.message);
-      console.log(result)
+      console.log(result.name)
     } catch (error) {
       setError(error.message);
     }
